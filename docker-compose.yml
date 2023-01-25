@@ -7,13 +7,13 @@ volumes:
 services:
 
     pgadmin:
-        container_name: pgadmin
+        container_name: p-pgadmin
         image: dpage/pgadmin4
         restart: unless-stopped
 
         environment:
-            PGADMIN_DEFAULT_EMAIL: local@host.com
-            PGADMIN_DEFAULT_PASSWORD: admin
+            PGADMIN_DEFAULT_EMAIL: ryan-aristosa@host.com
+            PGADMIN_DEFAULT_PASSWORD: ryan-aristosa
 
         volumes:
             - pgadmin:/root/.pgadmin
@@ -22,11 +22,11 @@ services:
             - '8082:80'
 
     postgres:
-        container_name: postgres
+        container_name: p-postgres
         image: postgres
         environment:
-            POSTGRES_USER: root
-            POSTGRES_PASSWORD: password
+            POSTGRES_USER: ryan-aristosa
+            POSTGRES_PASSWORD: ryan-aristosa
             PGDATA: /data/postgres
 
         volumes:
