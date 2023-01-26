@@ -1,7 +1,7 @@
 package com.example.portfolio.controller;
 
-import com.example.portfolio.dto.NavigationResponseDTO;
-import com.example.portfolio.service.NavigationService;
+import com.example.portfolio.dto.HomeResponseDTO;
+import com.example.portfolio.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/navigation")
+@RequestMapping("/home")
 @CrossOrigin(origins = "http://localhost:3000")
-public class NavigationController {
+public class HomeController {
 
     @Autowired
-    private NavigationService navigationService;
+    private HomeService homeService;
 
 
     @GetMapping
-    public ResponseEntity<List<NavigationResponseDTO>> getNavigationTexts() {
-        List<NavigationResponseDTO> navigationResponseDTOList = navigationService.getAllNavigationTexts();
-        return new ResponseEntity<>(navigationResponseDTOList, HttpStatus.OK);
+    public ResponseEntity<List<HomeResponseDTO>> getHomeTexts() {
+        List<HomeResponseDTO> homeResponseDTOList = homeService.getAllHomeTexts();
+        return new ResponseEntity<>(homeResponseDTOList, HttpStatus.OK);
     }
 
 }

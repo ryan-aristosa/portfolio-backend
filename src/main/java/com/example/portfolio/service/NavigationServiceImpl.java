@@ -19,10 +19,8 @@ public class NavigationServiceImpl implements NavigationService {
 
 
     @Override
-    public List<NavigationResponseDTO> getAllNavigationText() {
-        return navigationRepository.findAll()
-                .stream().map(navigationMapper::modelToResponseDto)
-                .toList();
+    public List<NavigationResponseDTO> getAllNavigationTexts() {
+        return navigationRepository.findAll().stream().map(navigationMapper::modelToResponseDto).toList();
     }
 
 }
