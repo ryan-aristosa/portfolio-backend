@@ -22,8 +22,8 @@ public class NavigationController {
 
 
     @GetMapping
-    public ResponseEntity<List<NavigationResponseDTO>> getNavigationTexts() {
-        List<NavigationResponseDTO> navigationResponseDTOList = navigationService.getAllNavigationTexts();
+    public ResponseEntity<List<NavigationResponseDTO>> getNavigationData() {
+        List<NavigationResponseDTO> navigationResponseDTOList = navigationService.getAllNavigationData();
         return new ResponseEntity<>(navigationResponseDTOList, HttpStatus.OK);
     }
 

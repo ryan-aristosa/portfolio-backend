@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface NavigationService {
 
-    List<NavigationResponseDTO> getAllNavigationTexts();
+    List<NavigationResponseDTO> getAllNavigationData();
 
 }

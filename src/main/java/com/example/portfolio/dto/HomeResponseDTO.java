@@ -6,6 +6,8 @@ import lombok.Data;
 public class HomeResponseDTO {
 
     private Long id;
-    private String text;
+    private String intro;
+    private String name;
+    private String bio;
 
 }

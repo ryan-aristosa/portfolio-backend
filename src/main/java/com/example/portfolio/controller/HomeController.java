@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/home")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -22,9 +20,9 @@ public class HomeController {
 
 
     @GetMapping
-    public ResponseEntity<List<HomeResponseDTO>> getHomeTexts() {
-        List<HomeResponseDTO> homeResponseDTOList = homeService.getAllHomeTexts();
-        return new ResponseEntity<>(homeResponseDTOList, HttpStatus.OK);
+    public ResponseEntity<HomeResponseDTO> getHomeData() {
+        HomeResponseDTO homeResponseDTO = homeService.getHomeData();
+        return new ResponseEntity<>(homeResponseDTO, HttpStatus.OK);
     }
 
 }

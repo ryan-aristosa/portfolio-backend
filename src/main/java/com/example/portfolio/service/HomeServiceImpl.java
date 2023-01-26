@@ -6,8 +6,6 @@ import com.example.portfolio.repository.HomeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class HomeServiceImpl implements HomeService {
 
@@ -19,8 +17,9 @@ public class HomeServiceImpl implements HomeService {
 
 
     @Override
-    public List<HomeResponseDTO> getAllHomeTexts() {
-        return homeRepository.findAll().stream().map(homeMapper::modelToResponseDto).toList();
+    public HomeResponseDTO getHomeData() {
+        return homeMapper.modelToResponseDto(homeRepository.findFirstByOrderByIdAsc());
+//        return homeRepository.findAll().stream().map(homeMapper::modelToResponseDto).toList();
     }
 
 }

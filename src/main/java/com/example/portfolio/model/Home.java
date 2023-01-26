@@ -14,6 +14,8 @@ public class Home {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String text;
+    private String intro;
+    private String name;
+    private String bio;
 
 }

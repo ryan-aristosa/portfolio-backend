@@ -7,8 +7,10 @@ VALUES
     ('project', 'fa-solid fa-diagram-project');
 
 INSERT INTO public.home
-    (text)
+    (intro, name, bio)
 VALUES
-    ('Hi, I am'),
-    ('Ryan Aristosa'),
-    ('Jr. Software Engineer at Cognizant Softvision');
+    (
+        'Hi, I am',
+        'Ryan Aristosa',
+        'Jr. Software Engineer at Cognizant Softvision'
+    );
