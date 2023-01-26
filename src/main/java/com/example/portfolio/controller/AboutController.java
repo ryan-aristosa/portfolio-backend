@@ -1,7 +1,7 @@
 package com.example.portfolio.controller;
 
-import com.example.portfolio.dto.HomeDTO;
-import com.example.portfolio.service.HomeService;
+import com.example.portfolio.dto.AboutDTO;
+import com.example.portfolio.service.AboutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/home")
+@RequestMapping("/about")
 @CrossOrigin(origins = "http://localhost:3000")
-public class HomeController {
+public class AboutController {
 
     @Autowired
-    private HomeService homeService;
+    private AboutService aboutService;
 
 
     @GetMapping
-    public ResponseEntity<HomeDTO> getHomeData() {
-        HomeDTO homeDTO = homeService.getHomeData();
-        return new ResponseEntity<>(homeDTO, HttpStatus.OK);
+    public ResponseEntity<AboutDTO> getAboutData() {
+        AboutDTO aboutDTO = aboutService.getAboutData();
+        return new ResponseEntity<>(aboutDTO, HttpStatus.OK);
     }
 
 }

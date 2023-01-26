@@ -1,6 +1,6 @@
 package com.example.portfolio.service;
 
-import com.example.portfolio.dto.NavigationResponseDTO;
+import com.example.portfolio.dto.NavigationDTO;
 import com.example.portfolio.mapper.NavigationMapper;
 import com.example.portfolio.repository.NavigationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ public class NavigationServiceImpl implements NavigationService {
 
 
     @Override
-    public List<NavigationResponseDTO> getAllNavigationData() {
-        return navigationRepository.findAll().stream().map(navigationMapper::modelToResponseDto).toList();
+    public List<NavigationDTO> getAllNavigationData() {
+        return navigationRepository.findAll().stream().map(navigationMapper::modelToDto).toList();
     }
 
 }

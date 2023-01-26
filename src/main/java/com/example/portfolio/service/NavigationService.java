@@ -1,11 +1,11 @@
 package com.example.portfolio.service;
 
-import com.example.portfolio.dto.NavigationResponseDTO;
+import com.example.portfolio.dto.NavigationDTO;
 
 import java.util.List;
 
 public interface NavigationService {
 
-    List<NavigationResponseDTO> getAllNavigationData();
+    List<NavigationDTO> getAllNavigationData();
 
 }

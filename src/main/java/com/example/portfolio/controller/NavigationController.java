@@ -1,6 +1,6 @@
 package com.example.portfolio.controller;
 
-import com.example.portfolio.dto.NavigationResponseDTO;
+import com.example.portfolio.dto.NavigationDTO;
 import com.example.portfolio.service.NavigationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,9 +22,9 @@ public class NavigationController {
 
 
     @GetMapping
-    public ResponseEntity<List<NavigationResponseDTO>> getNavigationData() {
-        List<NavigationResponseDTO> navigationResponseDTOList = navigationService.getAllNavigationData();
-        return new ResponseEntity<>(navigationResponseDTOList, HttpStatus.OK);
+    public ResponseEntity<List<NavigationDTO>> getNavigationData() {
+        List<NavigationDTO> navigationDTOList = navigationService.getAllNavigationData();
+        return new ResponseEntity<>(navigationDTOList, HttpStatus.OK);
     }
 
 }

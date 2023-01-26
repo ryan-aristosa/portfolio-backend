@@ -3,7 +3,7 @@ package com.example.portfolio.dto;
 import lombok.Data;
 
 @Data
-public class HomeResponseDTO {
+public class HomeDTO {
 
     private Long id;
     private String intro;

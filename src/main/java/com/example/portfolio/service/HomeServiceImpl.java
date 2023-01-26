@@ -1,6 +1,6 @@
 package com.example.portfolio.service;
 
-import com.example.portfolio.dto.HomeResponseDTO;
+import com.example.portfolio.dto.HomeDTO;
 import com.example.portfolio.mapper.HomeMapper;
 import com.example.portfolio.repository.HomeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +17,8 @@ public class HomeServiceImpl implements HomeService {
 
 
     @Override
-    public HomeResponseDTO getHomeData() {
-        return homeMapper.modelToResponseDto(homeRepository.findFirstByOrderByIdAsc());
-//        return homeRepository.findAll().stream().map(homeMapper::modelToResponseDto).toList();
+    public HomeDTO getHomeData() {
+        return homeMapper.modelToDto(homeRepository.findFirstByOrderByIdAsc());
     }
 
 }

@@ -1,9 +1,9 @@
 package com.example.portfolio.service;
 
-import com.example.portfolio.dto.HomeResponseDTO;
+import com.example.portfolio.dto.HomeDTO;
 
 public interface HomeService {
 
-    HomeResponseDTO getHomeData();
+    HomeDTO getHomeData();
 
 }
