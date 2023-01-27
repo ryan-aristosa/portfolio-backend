@@ -1,6 +1,5 @@
 package com.example.portfolio.dto;
 
-import com.example.portfolio.model.AboutContent;
 import lombok.Data;
 
 import java.util.List;

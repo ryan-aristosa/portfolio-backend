@@ -10,6 +10,6 @@ public class ExperienceDTO {
     private Long id;
     private String duration;
     private List<ExpDescriptionSpecificDTO> expDescriptionList;
-//    private List<ExpStack> expStackList;
+    private List<StackSpecificDTO> stackList;
 
 }
