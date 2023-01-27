@@ -8,7 +8,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface AboutMapper {
 
-    AboutSpecificDTO modelToSpecificDTO(About about);
+    AboutSpecificDTO modelToSpecificDto(About about);
 
     AboutDTO specificDtoToDto(AboutSpecificDTO aboutSpecificDTO);
 

@@ -7,17 +7,18 @@ import java.util.List;
 
 @Entity
 @Data
-public class About {
+public class Stack {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private String name;
-    private String username;
+    private String stack;
 
-    @OneToMany(mappedBy = "about")
-    private List<AboutContent> aboutContentList;
+    @OneToOne
+    private Color color;
+
+    @OneToMany(mappedBy = "stack")
+    private List<ExpStack> expStackList;
 
 }

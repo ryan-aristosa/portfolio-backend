@@ -5,15 +5,16 @@ import lombok.Data;
 
 @Entity
 @Data
-public class AboutContent {
+public class ExpStack {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String content;
+    @ManyToOne
+    private Experience experience;
 
     @ManyToOne
-    private About about;
+    private Stack stack;
 
 }

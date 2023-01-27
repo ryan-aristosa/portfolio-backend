@@ -32,17 +32,16 @@ public class AboutServiceImpl implements AboutService {
     @Override
     public AboutDTO getAboutData() {
         About about = aboutRepository.findFirstByOrderByIdAsc();
+        AboutSpecificDTO aboutSpecificDTO = aboutMapper.modelToSpecificDto(about);
+        AboutDTO aboutDTO = aboutMapper.specificDtoToDto(aboutSpecificDTO);
         Long aboutId = about.getId();
         List<AboutContentSpecificDTO> aboutContentResponseDTOList =
                 aboutContentRepository.findByAboutId(aboutId)
                         .stream()
                         .map(aboutContentMapper::modelToSpecificDto)
                         .toList();
-        AboutSpecificDTO aboutSpecificDTO = aboutMapper.modelToSpecificDTO(about);
-        AboutDTO aboutDTO = aboutMapper.specificDtoToDto(aboutSpecificDTO);
         aboutDTO.setAboutContentList(aboutContentResponseDTOList);
         return aboutDTO;
-//        return aboutMapper.modelToResponseDto(aboutRepository.findFirstByOrderByIdAsc());
     }
 
 }

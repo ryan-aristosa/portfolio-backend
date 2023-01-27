@@ -5,15 +5,15 @@ import lombok.Data;
 
 @Entity
 @Data
-public class AboutContent {
+public class Color {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String content;
+    private String color;
 
-    @ManyToOne
-    private About about;
+    @OneToOne(mappedBy = "color")
+    private Stack stack;
 
 }
