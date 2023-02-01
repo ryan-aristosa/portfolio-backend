@@ -35,11 +35,10 @@ public class AboutServiceImpl implements AboutService {
         AboutSpecificDTO aboutSpecificDTO = aboutMapper.modelToSpecificDto(about);
         AboutDTO aboutDTO = aboutMapper.specificDtoToDto(aboutSpecificDTO);
         Long aboutId = about.getId();
-        List<AboutContentSpecificDTO> aboutContentResponseDTOList =
-                aboutContentRepository.findByAboutId(aboutId)
-                        .stream()
-                        .map(aboutContentMapper::modelToSpecificDto)
-                        .toList();
+        List<AboutContentSpecificDTO> aboutContentResponseDTOList = aboutContentRepository.findByAboutId(aboutId)
+                .stream()
+                .map(aboutContentMapper::modelToSpecificDto)
+                .toList();
         aboutDTO.setAboutContentList(aboutContentResponseDTOList);
         return aboutDTO;
     }

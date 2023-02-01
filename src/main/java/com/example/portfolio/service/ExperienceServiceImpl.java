@@ -1,9 +1,6 @@
 package com.example.portfolio.service;
 
-import com.example.portfolio.dto.ExpDescriptionSpecificDTO;
-import com.example.portfolio.dto.ExperienceDTO;
-import com.example.portfolio.dto.ExperienceSpecificDTO;
-import com.example.portfolio.dto.StackSpecificDTO;
+import com.example.portfolio.dto.*;
 import com.example.portfolio.mapper.ExpDescriptionMapper;
 import com.example.portfolio.mapper.ExperienceMapper;
 import com.example.portfolio.mapper.StackMapper;
@@ -51,12 +48,16 @@ public class ExperienceServiceImpl implements ExperienceService {
                             .map(expDescriptionMapper::modelToSpecificDto)
                             .toList();
             experienceDTO.setExpDescriptionList(expDescriptionSpecificDTOList);
-            List<StackSpecificDTO> stackSpecificDTOList =
-                    expStackRepository.findByExperienceId(experienceId)
-                            .stream()
-                            .map(expStack -> stackMapper.modelToSpecificDto(expStack.getStack()))
-                            .toList();
-            experienceDTO.setStackList(stackSpecificDTOList);
+            List<StackDTO> stackDTOList = expStackRepository.findByExperienceId(experienceId)
+                    .stream()
+                    .map(expStack -> {
+                        StackSpecificDTO stackSpecificDTO = stackMapper.modelToSpecificDto(expStack.getStack());
+                        StackDTO stackDTO = stackMapper.specificDtoToDto(stackSpecificDTO);
+                        stackDTO.setColor(expStack.getStack().getColor().getColor());
+                        return stackDTO;
+                    })
+                    .toList();
+            experienceDTO.setStackList(stackDTOList);
             return experienceDTO;
         }).toList();
     }
