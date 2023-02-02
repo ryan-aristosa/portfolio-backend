@@ -1,6 +1,8 @@
 package com.example.portfolio.service;
 
-import com.example.portfolio.dto.*;
+import com.example.portfolio.dto.ExpDescriptionDTO;
+import com.example.portfolio.dto.ExperienceDTO;
+import com.example.portfolio.dto.StackDTO;
 import com.example.portfolio.mapper.ExpDescriptionMapper;
 import com.example.portfolio.mapper.ExperienceMapper;
 import com.example.portfolio.mapper.StackMapper;
@@ -37,27 +39,25 @@ public class ExperienceServiceImpl implements ExperienceService {
 
     @Override
     public List<ExperienceDTO> getExperienceData() {
-        List<Experience> experience = experienceRepository.findByOrderByIdDesc();
-        return experience.stream().map(exp -> {
-            ExperienceSpecificDTO experienceSpecificDTO = experienceMapper.modelToSpecificDto(exp);
-            ExperienceDTO experienceDTO = experienceMapper.specificDtoToDto(experienceSpecificDTO);
-            Long experienceId = exp.getId();
-            List<ExpDescriptionSpecificDTO> expDescriptionSpecificDTOList =
+        List<Experience> experienceList = experienceRepository.findByOrderByIdDesc();
+        return experienceList.stream().map(experience -> {
+            ExperienceDTO experienceDTO = experienceMapper.modelToDto(experience);
+            Long experienceId = experience.getId();
+            List<ExpDescriptionDTO> expDescriptionDTOList =
                     expDescriptionRepository.findByExperienceId(experienceId)
                             .stream()
-                            .map(expDescriptionMapper::modelToSpecificDto)
+                            .map(expDescriptionMapper::modelToDto)
                             .toList();
-            experienceDTO.setExpDescriptionList(expDescriptionSpecificDTOList);
+            experienceDTO.setDescriptions(expDescriptionDTOList);
             List<StackDTO> stackDTOList = expStackRepository.findByExperienceId(experienceId)
                     .stream()
                     .map(expStack -> {
-                        StackSpecificDTO stackSpecificDTO = stackMapper.modelToSpecificDto(expStack.getStack());
-                        StackDTO stackDTO = stackMapper.specificDtoToDto(stackSpecificDTO);
-                        stackDTO.setColor(expStack.getStack().getColor().getColor());
+                        StackDTO stackDTO = stackMapper.modelToDto(expStack.getStack());
+                        stackDTO.setColorCode(expStack.getStack().getColor().getColorCode());
                         return stackDTO;
                     })
                     .toList();
-            experienceDTO.setStackList(stackDTOList);
+            experienceDTO.setStacks(stackDTOList);
             return experienceDTO;
         }).toList();
     }

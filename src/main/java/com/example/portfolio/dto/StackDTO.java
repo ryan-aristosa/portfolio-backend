@@ -6,7 +6,7 @@ import lombok.Data;
 public class StackDTO {
 
     private Long id;
-    private String stack;
-    private String color;
+    private String stackName;
+    private String colorCode;
 
 }

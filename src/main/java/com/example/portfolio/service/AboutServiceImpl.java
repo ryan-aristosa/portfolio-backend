@@ -1,8 +1,7 @@
 package com.example.portfolio.service;
 
-import com.example.portfolio.dto.AboutContentSpecificDTO;
+import com.example.portfolio.dto.AboutContentDTO;
 import com.example.portfolio.dto.AboutDTO;
-import com.example.portfolio.dto.AboutSpecificDTO;
 import com.example.portfolio.mapper.AboutContentMapper;
 import com.example.portfolio.mapper.AboutMapper;
 import com.example.portfolio.model.About;
@@ -32,14 +31,12 @@ public class AboutServiceImpl implements AboutService {
     @Override
     public AboutDTO getAboutData() {
         About about = aboutRepository.findFirstByOrderByIdAsc();
-        AboutSpecificDTO aboutSpecificDTO = aboutMapper.modelToSpecificDto(about);
-        AboutDTO aboutDTO = aboutMapper.specificDtoToDto(aboutSpecificDTO);
-        Long aboutId = about.getId();
-        List<AboutContentSpecificDTO> aboutContentResponseDTOList = aboutContentRepository.findByAboutId(aboutId)
+        AboutDTO aboutDTO = aboutMapper.modelToDto(about);
+        List<AboutContentDTO> aboutContentDTOList = aboutContentRepository.findAll()
                 .stream()
-                .map(aboutContentMapper::modelToSpecificDto)
+                .map(aboutContentMapper::modelToDto)
                 .toList();
-        aboutDTO.setAboutContentList(aboutContentResponseDTOList);
+        aboutDTO.setContents(aboutContentDTOList);
         return aboutDTO;
     }
 

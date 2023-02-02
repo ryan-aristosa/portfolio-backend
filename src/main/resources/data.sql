@@ -12,25 +12,25 @@ VALUES
     ('Hi, I am', 'Ryan Aristosa',  'Jr. Software Engineer at Cognizant Softvision');
 
 INSERT INTO public.about
-    (title, name, username)
+    (name, username)
 VALUES
-    ('About Me', 'Ryan Aristosa', '@ryan-aristosa');
+    ('Ryan Aristosa', '@ryan-aristosa');
 
 INSERT INTO public.about_content
-    (content, about_id)
+    (content)
 VALUES
-    ('I am Ryan Aristosa, but you can call me R. I am a Jr. Software Engineer at Cognizant Softvision, with some knowledge in building and connecting frontend to backend using services and API.', '1'),
-    ('I am a graduate of Bachelor of Science in Information Technology in STI College Pasay-EDSA as Magna Cum Laude. Me and my team are also awarded with Best Capstone Project Awardee.', '1'),
-    ('My hobbies are playing games, and watching anime and tv series. I am also a casual fan of K-pop, due to its songs and dance choreography. On some free time, I try to upskill myself through reading and trying different things.', '1'),
-    ('Lastly, I can say that I am perseverant, optimistic, responsible, and well-organized.', '1');
+    ('I am Ryan Aristosa, but you can call me R. I am a Jr. Software Engineer at Cognizant Softvision, with some knowledge in building and connecting frontend to backend using services and API.'),
+    ('I am a graduate of Bachelor of Science in Information Technology in STI College Pasay-EDSA as Magna Cum Laude. Me and my team are also awarded with Best Capstone Project Awardee.'),
+    ('My hobbies are playing games, and watching anime and tv series. I am also a casual fan of K-pop, due to its songs and dance choreography. On some free time, I try to upskill myself through reading and trying different things.'),
+    ('Lastly, I can say that I am perseverant, optimistic, responsible, and well-organized.');
 
 INSERT INTO public.color
-    (color)
+    (color_code)
 VALUES
     ('c-eb'), ('c-dcb');
 
 INSERT INTO public.stack
-    (stack, color_id)
+    (stack_name, color_id)
 VALUES
     ('Java', '1'),
     ('C#', '1'),
@@ -53,8 +53,7 @@ VALUES
 INSERT INTO public.experience
     (duration)
 VALUES
-    ('2018 - August 2022 (College)'),
-    ('October 2022 - Present');
+    ('2018 - August 2022 (College)'), ('October 2022 - Present');
 
 INSERT INTO public.exp_description
     (text, experience_id)
@@ -70,3 +69,12 @@ INSERT INTO public.exp_stack
 VALUES
     ('1', '1'), ('1', '5'), ('1', '3'), ('1', '4'), ('1', '2'), ('1', '8'), ('1', '7'), ('1', '6'), ('1', '11'),
     ('2', '1'), ('2', '12'), ('2', '13'), ('2', '14'), ('2', '15'), ('2', '16'), ('2', '17'), ('2', '7');
+
+INSERT INTO public.project
+    (title, description, contribution)
+VALUES
+    ('6Keeper', 'Password Security Application using 6KED (6Keeper Encryption/Decryption) System', 'Spearheaded the development; Helped in UI/UX; Solely developed the back-end'),
+    ('skills-and-employees', 'Spring boot application for skills and employees with authorization and actuator', 'Led the development of the application'),
+    ('billing', 'Final Exam in Bootcamp', 'Led the development of the application'),
+    ('books-and-authors', 'Spring boot CRUD application for books and authors', 'Spearheaded the development of the application'),
+    ('ryan-aristosa.github.io', 'Portfolio made in React', 'Solely developed the web page');

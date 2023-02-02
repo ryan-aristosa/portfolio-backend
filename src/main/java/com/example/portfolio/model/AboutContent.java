@@ -1,6 +1,9 @@
 package com.example.portfolio.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Entity
@@ -12,8 +15,5 @@ public class AboutContent {
     private Long id;
 
     private String content;
-
-    @ManyToOne
-    private About about;
 
 }

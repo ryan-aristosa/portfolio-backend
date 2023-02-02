@@ -13,12 +13,15 @@ public class Stack {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String stack;
+    private String stackName;
 
     @OneToOne
     private Color color;
 
     @OneToMany(mappedBy = "stack")
     private List<ExpStack> expStackList;
+
+    @OneToMany(mappedBy = "stack")
+    private List<ProjectStack> projectStackList;
 
 }

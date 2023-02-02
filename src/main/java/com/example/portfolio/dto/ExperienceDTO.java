@@ -9,7 +9,7 @@ public class ExperienceDTO {
 
     private Long id;
     private String duration;
-    private List<ExpDescriptionSpecificDTO> expDescriptionList;
-    private List<StackDTO> stackList;
+    private List<ExpDescriptionDTO> descriptions;
+    private List<StackDTO> stacks;
 
 }
