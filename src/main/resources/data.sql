@@ -72,10 +72,44 @@ VALUES
     ('2', '1'), ('2', '12'), ('2', '13'), ('2', '14'), ('2', '15'), ('2', '16'), ('2', '17'), ('2', '7');
 
 INSERT INTO public.project
-    (title, description, contribution)
+    (title, description, contribution, open_source_link)
 VALUES
-    ('6Keeper', 'Password Security Application using 6KED (6Keeper Encryption/Decryption) System', 'Spearheaded the development; Helped in UI/UX; Solely developed the back-end'),
-    ('skills-and-employees', 'Spring boot application for skills and employees with authorization and actuator', 'Led the development of the application'),
-    ('billing', 'Final Exam in Bootcamp', 'Led the development of the application'),
-    ('books-and-authors', 'Spring boot CRUD application for books and authors', 'Spearheaded the development of the application'),
-    ('ryan-aristosa.github.io', 'Portfolio made in React', 'Solely developed the web page');
+    (
+        '6Keeper',
+        'Password Security Application using 6KED (6Keeper Encryption/Decryption) System',
+        'Spearheaded the development; Helped in UI/UX; Solely developed the back-end',
+        'https://github.com/rynrsts/6Keeper'
+    ),
+    (
+        'skills-and-employees',
+        'Spring boot application for skills and employees with authorization and actuator',
+        'Led the development of the application',
+        'https://github.com/ryan-aristosa/skills-and-employees'
+    ),
+    (
+        'billing',
+        'Final Exam in Bootcamp',
+        'Led the development of the application',
+        'https://github.com/ryan-aristosa/billing'
+    ),
+    (
+        'books-and-authors',
+        'Spring boot CRUD application for books and authors',
+        'Spearheaded the development of the application',
+        'https://github.com/ryan-aristosa/books-and-authors'
+    ),
+    (
+        'ryan-aristosa.github.io',
+        'Portfolio made in React',
+        'Solely developed the web page',
+        'https://github.com/ryan-aristosa/ryan-aristosa.github.io'
+    );
+
+INSERT INTO public.project_stack
+    (project_id, stack_id)
+VALUES
+    ('1', '8'), ('1', '9'), ('1', '10'),
+    ('2', '1'), ('2', '12'), ('2', '13'),
+    ('3', '1'), ('3', '12'), ('3', '13'),
+    ('4', '1'), ('4', '12'), ('4', '13'),
+    ('5', '17'), ('5', '7'), ('5', '18');
