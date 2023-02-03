@@ -36,7 +36,7 @@ public class AboutServiceImpl implements AboutService {
                 .stream()
                 .map(aboutContentMapper::modelToDto)
                 .toList();
-        aboutDTO.setContents(aboutContentDTOList);
+        aboutDTO.setContentList(aboutContentDTOList);
         return aboutDTO;
     }
 

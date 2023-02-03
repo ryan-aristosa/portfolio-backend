@@ -10,6 +10,6 @@ public class AboutDTO {
     private Long id;
     private String name;
     private String username;
-    private List<AboutContentDTO> contents;
+    private List<AboutContentDTO> contentList;
 
 }

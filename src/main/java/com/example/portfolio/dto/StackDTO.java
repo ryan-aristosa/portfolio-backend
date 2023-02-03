@@ -7,6 +7,7 @@ public class StackDTO {
 
     private Long id;
     private String stackName;
-    private String colorCode;
+    private String primaryColorHex;
+    private String fontColorCode;
 
 }

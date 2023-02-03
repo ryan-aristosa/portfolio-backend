@@ -24,31 +24,32 @@ VALUES
     ('My hobbies are playing games, and watching anime and tv series. I am also a casual fan of K-pop, due to its songs and dance choreography. On some free time, I try to upskill myself through reading and trying different things.'),
     ('Lastly, I can say that I am perseverant, optimistic, responsible, and well-organized.');
 
-INSERT INTO public.color
+INSERT INTO public.font_color
     (color_code)
 VALUES
     ('c-eb'), ('c-dcb');
 
 INSERT INTO public.stack
-    (stack_name, color_id)
+    (stack_name, primary_color_hex, font_color_id)
 VALUES
-    ('Java', '1'),
-    ('C#', '1'),
-    ('HTML', '1'),
-    ('CSS', '1'),
-    ('JavaScript', '2'),
-    ('PHP', '1'),
-    ('Bootstrap', '1'),
-    ('Kotlin', '1'),
-    ('Android Studio', '2'),
-    ('Firebase', '2'),
-    ('Python', '2'),
-    ('Spring Boot', '1'),
-    ('Hibernate', '1'),
-    ('Git', '1'),
-    ('Docker', '1'),
-    ('PostgreSQL', '1'),
-    ('React', '2');
+    ('Java', '#EA2D2E', '1'),
+    ('C#', '#68217A', '1'),
+    ('HTML', '#E54D26', '1'),
+    ('CSS', '#3D8FC6', '1'),
+    ('JavaScript', '#F0DB4F', '2'),
+    ('PHP', '#6181B6', '1'),
+    ('Bootstrap', '#59407F', '1'),
+    ('Kotlin', '#7F52FF', '1'),
+    ('Android Studio', '#3DDC84', '2'),
+    ('Firebase', '#FFCA28', '2'),
+    ('Python', '#FFD845', '2'),
+    ('Spring Boot', '#6DB33F', '1'),
+    ('Hibernate', '#59666C', '1'),
+    ('Git', '#F05032', '1'),
+    ('Docker', '#2496ED', '1'),
+    ('PostgreSQL', '#4169E1', '1'),
+    ('React', '#61DAFB', '2'),
+    ('SASS', '#CC6699', '1');
 
 INSERT INTO public.experience
     (duration)

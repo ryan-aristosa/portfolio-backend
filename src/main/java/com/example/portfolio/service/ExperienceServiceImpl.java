@@ -48,16 +48,16 @@ public class ExperienceServiceImpl implements ExperienceService {
                             .stream()
                             .map(expDescriptionMapper::modelToDto)
                             .toList();
-            experienceDTO.setDescriptions(expDescriptionDTOList);
+            experienceDTO.setDescriptionList(expDescriptionDTOList);
             List<StackDTO> stackDTOList = expStackRepository.findByExperienceId(experienceId)
                     .stream()
                     .map(expStack -> {
                         StackDTO stackDTO = stackMapper.modelToDto(expStack.getStack());
-                        stackDTO.setColorCode(expStack.getStack().getColor().getColorCode());
+                        stackDTO.setFontColorCode(expStack.getStack().getFontColor().getColorCode());
                         return stackDTO;
                     })
                     .toList();
-            experienceDTO.setStacks(stackDTOList);
+            experienceDTO.setStackList(stackDTOList);
             return experienceDTO;
         }).toList();
     }

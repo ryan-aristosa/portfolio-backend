@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Color {
+public class FontColor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +13,7 @@ public class Color {
 
     private String colorCode;
 
-    @OneToOne(mappedBy = "color")
+    @OneToOne(mappedBy = "fontColor")
     private Stack stack;
 
 }

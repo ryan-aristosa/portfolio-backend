@@ -14,9 +14,10 @@ public class Stack {
     private Long id;
 
     private String stackName;
+    private String primaryColorHex;
 
     @OneToOne
-    private Color color;
+    private FontColor fontColor;
 
     @OneToMany(mappedBy = "stack")
     private List<ExpStack> expStackList;
