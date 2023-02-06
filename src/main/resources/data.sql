@@ -113,3 +113,19 @@ VALUES
     ('3', '1'), ('3', '12'), ('3', '13'),
     ('4', '1'), ('4', '12'), ('4', '13'),
     ('5', '17'), ('5', '7'), ('5', '18');
+
+INSERT INTO public.contact
+    (platform, icon)
+VALUES
+    ('Github', 'fa-brands fa-github'),
+    ('LinkedIn', 'fa-brands fa-linkedin-in'),
+    ('Email', 'fa-solid fa-envelope');
+
+INSERT INTO public.account
+    (account_name, link, contact_id)
+VALUES
+    ('ryan-aristosa', 'https://github.com/ryan-aristosa', '1'),
+    ('rynrsts (Personal)', 'https://github.com/rynrsts', '1'),
+    ('LinkedIn', 'https://www.linkedin.com/in/rynrsts/', '2'),
+    ('Work email', 'mailto: ryan.aristosa@softvision.com', '3'),
+    ('Personal email', 'mailto: ryanaristosa@outlook.com', '3');
