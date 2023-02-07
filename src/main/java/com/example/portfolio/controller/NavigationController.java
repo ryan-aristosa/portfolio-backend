@@ -2,7 +2,6 @@ package com.example.portfolio.controller;
 
 import com.example.portfolio.dto.NavigationDTO;
 import com.example.portfolio.exception.RecordNotFoundException;
-import com.example.portfolio.model.Navigation;
 import com.example.portfolio.service.NavigationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
