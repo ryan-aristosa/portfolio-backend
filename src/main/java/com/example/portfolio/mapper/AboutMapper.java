@@ -1,6 +1,7 @@
 package com.example.portfolio.mapper;
 
 import com.example.portfolio.dto.AboutDTO;
+import com.example.portfolio.dto.AboutUpdateDTO;
 import com.example.portfolio.model.About;
 import org.mapstruct.Mapper;
 
@@ -8,5 +9,7 @@ import org.mapstruct.Mapper;
 public interface AboutMapper {
 
     AboutDTO modelToDto(About about);
+
+    AboutUpdateDTO modelToUpdateDto(About about);
 
 }
