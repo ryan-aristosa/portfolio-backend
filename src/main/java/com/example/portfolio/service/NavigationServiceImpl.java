@@ -1,6 +1,7 @@
 package com.example.portfolio.service;
 
 import com.example.portfolio.dto.NavigationDTO;
+import com.example.portfolio.exception.RecordNotFoundException;
 import com.example.portfolio.mapper.NavigationMapper;
 import com.example.portfolio.model.Navigation;
 import com.example.portfolio.repository.NavigationRepository;
@@ -30,8 +31,11 @@ public class NavigationServiceImpl implements NavigationService {
     }
 
     @Override
-    public NavigationDTO updateNavigationData(Long id, Navigation newNavigation) {
+    public NavigationDTO updateNavigationData(Long id, Navigation newNavigation) throws RecordNotFoundException {
         Optional<Navigation> navigationOptional = navigationRepository.findById(id);
+        if (navigationOptional.isEmpty()) {
+            throw new RecordNotFoundException("Record not found");
+        }
         Navigation navigation = navigationOptional.get();
         modelMapper.getConfiguration().setSkipNullEnabled(true);
         modelMapper.map(newNavigation, navigation);

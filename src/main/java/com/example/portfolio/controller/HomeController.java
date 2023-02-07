@@ -1,14 +1,13 @@
 package com.example.portfolio.controller;
 
 import com.example.portfolio.dto.HomeDTO;
+import com.example.portfolio.exception.RecordNotFoundException;
+import com.example.portfolio.model.Home;
 import com.example.portfolio.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/home")
@@ -23,6 +22,12 @@ public class HomeController {
     public ResponseEntity<HomeDTO> getHomeData() {
         HomeDTO homeDTO = homeService.getHomeData();
         return new ResponseEntity<>(homeDTO, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<HomeDTO> updateNavigation(@PathVariable Long id, @RequestBody Home newHome)
+            throws RecordNotFoundException {
+        return new ResponseEntity<>(homeService.updateHomeData(id, newHome), HttpStatus.OK);
     }
 
 }

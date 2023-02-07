@@ -1,6 +1,7 @@
 package com.example.portfolio.controller;
 
 import com.example.portfolio.dto.NavigationDTO;
+import com.example.portfolio.exception.RecordNotFoundException;
 import com.example.portfolio.model.Navigation;
 import com.example.portfolio.service.NavigationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class NavigationController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<NavigationDTO> updateNavigation
-            (@PathVariable Long id, @RequestBody Navigation newNavigation) {
+    public ResponseEntity<NavigationDTO> updateNavigation(@PathVariable Long id, @RequestBody Navigation newNavigation)
+            throws RecordNotFoundException {
         return new ResponseEntity<>(navigationService.updateNavigationData(id, newNavigation), HttpStatus.OK);
     }
 
