@@ -129,3 +129,8 @@ VALUES
     ('LinkedIn', 'https://www.linkedin.com/in/rynrsts/', '2'),
     ('Work email', 'mailto: ryan.aristosa@softvision.com', '3'),
     ('Personal email', 'mailto: ryanaristosa@outlook.com', '3');
+
+INSERT INTO public.footer
+    (text)
+VALUES
+    ('Copyright 2023 Ryan Aristosa. All rights reserved.');
