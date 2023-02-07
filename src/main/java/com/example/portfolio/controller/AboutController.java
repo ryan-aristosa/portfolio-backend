@@ -20,7 +20,7 @@ public class AboutController {
 
 
     @GetMapping
-    public ResponseEntity<AboutDTO> getAboutData() {
+    public ResponseEntity<AboutDTO> getAbout() {
         AboutDTO aboutDTO = aboutService.getAboutData();
         return new ResponseEntity<>(aboutDTO, HttpStatus.OK);
     }

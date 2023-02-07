@@ -19,13 +19,13 @@ public class HomeController {
 
 
     @GetMapping
-    public ResponseEntity<HomeDTO> getHomeData() {
+    public ResponseEntity<HomeDTO> getHome() {
         HomeDTO homeDTO = homeService.getHomeData();
         return new ResponseEntity<>(homeDTO, HttpStatus.OK);
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<HomeDTO> updateNavigation(@PathVariable Long id, @RequestBody Home newHome)
+    public ResponseEntity<HomeDTO> updateHome(@PathVariable Long id, @RequestBody Home newHome)
             throws RecordNotFoundException {
         return new ResponseEntity<>(homeService.updateHomeData(id, newHome), HttpStatus.OK);
     }
