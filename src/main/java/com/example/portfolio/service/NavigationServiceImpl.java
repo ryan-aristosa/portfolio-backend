@@ -31,14 +31,14 @@ public class NavigationServiceImpl implements NavigationService {
     }
 
     @Override
-    public NavigationDTO updateNavigationData(Long id, Navigation newNavigation) throws RecordNotFoundException {
+    public NavigationDTO updateNavigationData(Long id, NavigationDTO newNavigationDTO) throws RecordNotFoundException {
         Optional<Navigation> navigationOptional = navigationRepository.findById(id);
         if (navigationOptional.isEmpty()) {
             throw new RecordNotFoundException("Record not found");
         }
         Navigation navigation = navigationOptional.get();
         modelMapper.getConfiguration().setSkipNullEnabled(true);
-        modelMapper.map(newNavigation, navigation);
+        modelMapper.map(newNavigationDTO, navigation);
         navigationRepository.save(navigation);
         return navigationMapper.modelToDto(navigation);
     }

@@ -10,6 +10,6 @@ public interface NavigationService {
 
     List<NavigationDTO> getAllNavigationData();
 
-    NavigationDTO updateNavigationData(Long id, Navigation newNavigation) throws RecordNotFoundException;
+    NavigationDTO updateNavigationData(Long id, NavigationDTO newNavigationDTO) throws RecordNotFoundException;
 
 }

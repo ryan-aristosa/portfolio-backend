@@ -26,9 +26,9 @@ public class NavigationController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<NavigationDTO> updateNavigation(@PathVariable Long id, @RequestBody Navigation newNavigation)
-            throws RecordNotFoundException {
-        return new ResponseEntity<>(navigationService.updateNavigationData(id, newNavigation), HttpStatus.OK);
+    public ResponseEntity<NavigationDTO> updateNavigation
+            (@PathVariable Long id, @RequestBody NavigationDTO newNavigationDTO) throws RecordNotFoundException {
+        return new ResponseEntity<>(navigationService.updateNavigationData(id, newNavigationDTO), HttpStatus.OK);
     }
 
 }
