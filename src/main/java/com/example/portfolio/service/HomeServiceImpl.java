@@ -30,14 +30,14 @@ public class HomeServiceImpl implements HomeService {
     }
 
     @Override
-    public HomeDTO updateHomeData(Long id, Home newHome) throws RecordNotFoundException {
+    public HomeDTO updateHomeData(Long id, HomeDTO newHomeDTO) throws RecordNotFoundException {
         Optional<Home> homeOptional = homeRepository.findById(id);
         if (homeOptional.isEmpty()) {
             throw new RecordNotFoundException("Record not found");
         }
         Home home = homeOptional.get();
         modelMapper.getConfiguration().setSkipNullEnabled(true);
-        modelMapper.map(newHome, home);
+        modelMapper.map(newHomeDTO, home);
         homeRepository.save(home);
         return homeMapper.modelToDto(home);
     }
