@@ -1,14 +1,12 @@
 package com.example.portfolio.controller;
 
 import com.example.portfolio.dto.NavigationDTO;
+import com.example.portfolio.model.Navigation;
 import com.example.portfolio.service.NavigationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,9 +20,14 @@ public class NavigationController {
 
 
     @GetMapping
-    public ResponseEntity<List<NavigationDTO>> getNavigationData() {
-        List<NavigationDTO> navigationDTOList = navigationService.getAllNavigationData();
-        return new ResponseEntity<>(navigationDTOList, HttpStatus.OK);
+    public ResponseEntity<List<NavigationDTO>> getAllNavigation() {
+        return new ResponseEntity<>(navigationService.getAllNavigationData(), HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<NavigationDTO> updateNavigation
+            (@PathVariable Long id, @RequestBody Navigation newNavigation) {
+        return new ResponseEntity<>(navigationService.updateNavigationData(id, newNavigation), HttpStatus.OK);
     }
 
 }
