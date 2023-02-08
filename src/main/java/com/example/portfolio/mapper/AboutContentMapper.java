@@ -9,4 +9,6 @@ public interface AboutContentMapper {
 
     AboutContentDTO modelToDto(AboutContent aboutContent);
 
+    AboutContent dtoToModel(AboutContentDTO aboutContentDTO);
+
 }

@@ -25,19 +25,21 @@ public class AboutContentServiceImpl implements AboutContentService {
 
 
     @Override
-    public AboutContentDTO saveAboutContentData(AboutContent newAboutContent) {
-        return aboutContentMapper.modelToDto(aboutContentRepository.save(newAboutContent));
+    public AboutContentDTO saveAboutContentData(AboutContentDTO newAboutContentDTO) {
+        AboutContent aboutContent = aboutContentRepository.save(aboutContentMapper.dtoToModel(newAboutContentDTO));
+        return aboutContentMapper.modelToDto(aboutContent);
     }
 
     @Override
-    public AboutContentDTO updateAboutContentData(Long id, AboutContent newAboutContent) throws RecordNotFoundException {
+    public AboutContentDTO updateAboutContentData(Long id, AboutContentDTO newAboutContentDTO)
+            throws RecordNotFoundException {
         Optional<AboutContent> aboutContentOptional = aboutContentRepository.findById(id);
         if (aboutContentOptional.isEmpty()) {
             throw new RecordNotFoundException("Record not found");
         }
         AboutContent aboutContent = aboutContentOptional.get();
         modelMapper.getConfiguration().setSkipNullEnabled(true);
-        modelMapper.map(newAboutContent, aboutContent);
+        modelMapper.map(newAboutContentDTO, aboutContent);
         aboutContentRepository.save(aboutContent);
         return aboutContentMapper.modelToDto(aboutContent);
     }
