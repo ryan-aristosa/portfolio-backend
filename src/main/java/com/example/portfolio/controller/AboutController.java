@@ -3,7 +3,6 @@ package com.example.portfolio.controller;
 import com.example.portfolio.dto.AboutDTO;
 import com.example.portfolio.dto.AboutUpdateDTO;
 import com.example.portfolio.exception.RecordNotFoundException;
-import com.example.portfolio.model.About;
 import com.example.portfolio.service.AboutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,9 +25,9 @@ public class AboutController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<AboutUpdateDTO> updateAbout(@PathVariable Long id, @RequestBody About newAbout)
-            throws RecordNotFoundException {
-        return new ResponseEntity<>(aboutService.updateAboutData(id, newAbout), HttpStatus.OK);
+    public ResponseEntity<AboutUpdateDTO> updateAbout
+            (@PathVariable Long id, @RequestBody AboutUpdateDTO newAboutUpdateDTO) throws RecordNotFoundException {
+        return new ResponseEntity<>(aboutService.updateAboutData(id, newAboutUpdateDTO), HttpStatus.OK);
     }
 
 }

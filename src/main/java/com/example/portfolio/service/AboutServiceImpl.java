@@ -48,14 +48,14 @@ public class AboutServiceImpl implements AboutService {
     }
 
     @Override
-    public AboutUpdateDTO updateAboutData(Long id, About newAbout) throws RecordNotFoundException {
+    public AboutUpdateDTO updateAboutData(Long id, AboutUpdateDTO newAboutUpdateDTO) throws RecordNotFoundException {
         Optional<About> aboutOptional = aboutRepository.findById(id);
         if (aboutOptional.isEmpty()) {
             throw new RecordNotFoundException("Record not found");
         }
         About about = aboutOptional.get();
         modelMapper.getConfiguration().setSkipNullEnabled(true);
-        modelMapper.map(newAbout, about);
+        modelMapper.map(newAboutUpdateDTO, about);
         aboutRepository.save(about);
         return aboutMapper.modelToUpdateDto(about);
     }
