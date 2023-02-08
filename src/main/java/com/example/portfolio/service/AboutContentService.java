@@ -9,4 +9,6 @@ public interface AboutContentService {
 
     AboutContentDTO updateAboutContentData(Long id, AboutContentDTO newAboutContentDTO) throws RecordNotFoundException;
 
+    void deleteAboutContentData(Long id) throws RecordNotFoundException;
+
 }

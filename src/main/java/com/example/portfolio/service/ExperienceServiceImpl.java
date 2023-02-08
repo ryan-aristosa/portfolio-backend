@@ -89,4 +89,13 @@ public class ExperienceServiceImpl implements ExperienceService {
         return experienceMapper.modelToSaveDto(experience);
     }
 
+    @Override
+    public void deleteExperienceData(Long id) throws RecordNotFoundException {
+        Optional<Experience> experienceOptional = experienceRepository.findById(id);
+        if (experienceOptional.isEmpty()) {
+            throw new RecordNotFoundException("Record not found");
+        }
+        experienceRepository.deleteById(id);
+    }
+
 }

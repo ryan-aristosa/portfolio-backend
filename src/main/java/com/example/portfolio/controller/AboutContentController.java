@@ -29,4 +29,10 @@ public class AboutContentController {
                 (aboutContentService.updateAboutContentData(id, newAboutContentDTO), HttpStatus.ACCEPTED);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteAboutContent(@PathVariable Long id) throws RecordNotFoundException {
+        aboutContentService.deleteAboutContentData(id);
+        return new ResponseEntity<>("Deleted", HttpStatus.ACCEPTED);
+    }
+
 }

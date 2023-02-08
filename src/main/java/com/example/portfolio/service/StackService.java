@@ -10,4 +10,6 @@ public interface StackService {
 
     StackDTO updateStackData(Long id, StackSaveDTO newStackSaveDTO) throws RecordNotFoundException;
 
+    void deleteStackData(Long id) throws RecordNotFoundException;
+
 }

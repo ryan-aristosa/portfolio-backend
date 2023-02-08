@@ -44,4 +44,13 @@ public class AboutContentServiceImpl implements AboutContentService {
         return aboutContentMapper.modelToDto(aboutContent);
     }
 
+    @Override
+    public void deleteAboutContentData(Long id) throws RecordNotFoundException {
+        Optional<AboutContent> aboutContentOptional = aboutContentRepository.findById(id);
+        if (aboutContentOptional.isEmpty()) {
+            throw new RecordNotFoundException("Record not found");
+        }
+        aboutContentRepository.deleteById(id);
+    }
+
 }

@@ -40,4 +40,10 @@ public class ExperienceController {
                 (experienceService.updateExperienceData(id, newExperienceSaveDTO), HttpStatus.ACCEPTED);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteExperience(@PathVariable Long id) throws RecordNotFoundException {
+        experienceService.deleteExperienceData(id);
+        return new ResponseEntity<>("Deleted", HttpStatus.ACCEPTED);
+    }
+
 }

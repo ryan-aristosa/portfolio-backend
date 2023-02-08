@@ -30,4 +30,10 @@ public class StackController {
         return new ResponseEntity<>(stackService.updateStackData(id, newStackSaveDTO), HttpStatus.ACCEPTED);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteStack(@PathVariable Long id) throws RecordNotFoundException {
+        stackService.deleteStackData(id);
+        return new ResponseEntity<>("Deleted", HttpStatus.ACCEPTED);
+    }
+
 }

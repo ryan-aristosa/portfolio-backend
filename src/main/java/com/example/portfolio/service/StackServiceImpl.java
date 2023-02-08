@@ -66,4 +66,13 @@ public class StackServiceImpl implements StackService {
         return stackDTO;
     }
 
+    @Override
+    public void deleteStackData(Long id) throws RecordNotFoundException {
+        Optional<Stack> stackOptional = stackRepository.findById(id);
+        if (stackOptional.isEmpty()) {
+            throw new RecordNotFoundException("Record not found");
+        }
+        stackRepository.deleteById(id);
+    }
+
 }

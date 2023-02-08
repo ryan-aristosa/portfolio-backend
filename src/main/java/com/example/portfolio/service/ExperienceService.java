@@ -15,4 +15,6 @@ public interface ExperienceService {
     ExperienceSaveDTO updateExperienceData(Long id, ExperienceSaveDTO newExperienceSaveDTO)
             throws RecordNotFoundException;
 
+    void deleteExperienceData(Long id) throws RecordNotFoundException;
+
 }
