@@ -1,14 +1,13 @@
 package com.example.portfolio.controller;
 
 import com.example.portfolio.dto.ExperienceDTO;
+import com.example.portfolio.dto.ExperienceSaveDTO;
+import com.example.portfolio.exception.RecordNotFoundException;
 import com.example.portfolio.service.ExperienceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,9 +21,22 @@ public class ExperienceController {
 
 
     @GetMapping
-    public ResponseEntity<List<ExperienceDTO>> getExperienceData() {
+    public ResponseEntity<List<ExperienceDTO>> getExperience() {
         List<ExperienceDTO> experienceDTOList = experienceService.getExperienceData();
         return new ResponseEntity<>(experienceDTOList, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<ExperienceSaveDTO> saveExperience(@RequestBody ExperienceSaveDTO newExperienceSaveDTO)
+            throws RecordNotFoundException {
+        return new ResponseEntity<>(experienceService.saveExperienceData(newExperienceSaveDTO), HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<ExperienceSaveDTO> updateExperience
+            (@PathVariable Long id, @RequestBody ExperienceSaveDTO newExperienceSaveDTO)
+            throws RecordNotFoundException {
+        return new ResponseEntity<>(experienceService.updateExperienceData(id, newExperienceSaveDTO), HttpStatus.OK);
     }
 
 }
