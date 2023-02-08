@@ -70,7 +70,7 @@ public class ExperienceServiceImpl implements ExperienceService {
     }
 
     @Override
-    public ExperienceSaveDTO saveExperienceData(ExperienceSaveDTO newExperienceSaveDTO) throws RecordNotFoundException {
+    public ExperienceSaveDTO saveExperienceData(ExperienceSaveDTO newExperienceSaveDTO) {
         Experience experience = experienceRepository.save(experienceMapper.saveDtoToModel(newExperienceSaveDTO));
         return experienceMapper.modelToSaveDto(experience);
     }

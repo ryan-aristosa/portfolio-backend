@@ -27,8 +27,7 @@ public class ExperienceController {
     }
 
     @PostMapping
-    public ResponseEntity<ExperienceSaveDTO> saveExperience(@RequestBody ExperienceSaveDTO newExperienceSaveDTO)
-            throws RecordNotFoundException {
+    public ResponseEntity<ExperienceSaveDTO> saveExperience(@RequestBody ExperienceSaveDTO newExperienceSaveDTO) {
         return new ResponseEntity<>(experienceService.saveExperienceData(newExperienceSaveDTO), HttpStatus.CREATED);
     }
 

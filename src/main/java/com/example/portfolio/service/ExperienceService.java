@@ -10,7 +10,7 @@ public interface ExperienceService {
 
     List<ExperienceDTO> getExperienceData();
 
-    ExperienceSaveDTO saveExperienceData(ExperienceSaveDTO newExperienceSaveDTO) throws RecordNotFoundException;
+    ExperienceSaveDTO saveExperienceData(ExperienceSaveDTO newExperienceSaveDTO);
 
     ExperienceSaveDTO updateExperienceData(Long id, ExperienceSaveDTO newExperienceSaveDTO)
             throws RecordNotFoundException;

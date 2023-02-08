@@ -1,16 +1,20 @@
 package com.example.portfolio.service;
 
 import com.example.portfolio.dto.ProjectDTO;
+import com.example.portfolio.dto.ProjectSaveDTO;
 import com.example.portfolio.dto.StackDTO;
+import com.example.portfolio.exception.RecordNotFoundException;
 import com.example.portfolio.mapper.ProjectMapper;
 import com.example.portfolio.mapper.StackMapper;
 import com.example.portfolio.model.Project;
 import com.example.portfolio.repository.ProjectRepository;
 import com.example.portfolio.repository.ProjectStackRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -26,6 +30,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Autowired
     private StackMapper stackMapper;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
 
     @Override
@@ -45,6 +52,34 @@ public class ProjectServiceImpl implements ProjectService {
             projectDTO.setStackList(stackDTOList);
             return projectDTO;
         }).toList();
+    }
+
+    @Override
+    public ProjectSaveDTO saveProjectData(ProjectSaveDTO newProjectSaveDTO) {
+        Project project = projectRepository.save(projectMapper.saveDtoToModel(newProjectSaveDTO));
+        return projectMapper.modelToSaveDto(project);
+    }
+
+    @Override
+    public ProjectSaveDTO updateProjectData(Long id, ProjectSaveDTO newProjectSaveDTO) throws RecordNotFoundException {
+        Optional<Project> projectOptional = projectRepository.findById(id);
+        if (projectOptional.isEmpty()) {
+            throw new RecordNotFoundException("Record not found");
+        }
+        Project project = projectOptional.get();
+        modelMapper.getConfiguration().setSkipNullEnabled(true);
+        modelMapper.map(newProjectSaveDTO, project);
+        projectRepository.save(project);
+        return projectMapper.modelToSaveDto(project);
+    }
+
+    @Override
+    public void deleteProjectData(Long id) throws RecordNotFoundException {
+        Optional<Project> projectOptional = projectRepository.findById(id);
+        if (projectOptional.isEmpty()) {
+            throw new RecordNotFoundException("Record not found");
+        }
+        projectRepository.deleteById(id);
     }
 
 }
