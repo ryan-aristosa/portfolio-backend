@@ -25,7 +25,7 @@ public class HomeController {
     @PatchMapping("/{id}")
     public ResponseEntity<HomeDTO> updateHome(@PathVariable Long id, @RequestBody HomeDTO newHomeDTO)
             throws RecordNotFoundException {
-        return new ResponseEntity<>(homeService.updateHomeData(id, newHomeDTO), HttpStatus.OK);
+        return new ResponseEntity<>(homeService.updateHomeData(id, newHomeDTO), HttpStatus.ACCEPTED);
     }
 
 }

@@ -19,13 +19,14 @@ public class AboutContentController {
 
     @PostMapping
     public ResponseEntity<AboutContentDTO> saveAboutContent(@RequestBody AboutContentDTO newAboutContentDTO) {
-        return new ResponseEntity<>(aboutContentService.saveAboutContentData(newAboutContentDTO), HttpStatus.OK);
+        return new ResponseEntity<>(aboutContentService.saveAboutContentData(newAboutContentDTO), HttpStatus.CREATED);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<AboutContentDTO> updateAboutContent
             (@PathVariable Long id, @RequestBody AboutContentDTO newAboutContentDTO) throws RecordNotFoundException {
-        return new ResponseEntity<>(aboutContentService.updateAboutContentData(id, newAboutContentDTO), HttpStatus.OK);
+        return new ResponseEntity<>
+                (aboutContentService.updateAboutContentData(id, newAboutContentDTO), HttpStatus.ACCEPTED);
     }
 
 }

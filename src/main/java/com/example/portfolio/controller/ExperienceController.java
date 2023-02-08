@@ -29,14 +29,15 @@ public class ExperienceController {
     @PostMapping
     public ResponseEntity<ExperienceSaveDTO> saveExperience(@RequestBody ExperienceSaveDTO newExperienceSaveDTO)
             throws RecordNotFoundException {
-        return new ResponseEntity<>(experienceService.saveExperienceData(newExperienceSaveDTO), HttpStatus.OK);
+        return new ResponseEntity<>(experienceService.saveExperienceData(newExperienceSaveDTO), HttpStatus.CREATED);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<ExperienceSaveDTO> updateExperience
             (@PathVariable Long id, @RequestBody ExperienceSaveDTO newExperienceSaveDTO)
             throws RecordNotFoundException {
-        return new ResponseEntity<>(experienceService.updateExperienceData(id, newExperienceSaveDTO), HttpStatus.OK);
+        return new ResponseEntity<>
+                (experienceService.updateExperienceData(id, newExperienceSaveDTO), HttpStatus.ACCEPTED);
     }
 
 }

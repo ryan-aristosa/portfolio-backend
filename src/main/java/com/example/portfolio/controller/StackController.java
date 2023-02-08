@@ -21,13 +21,13 @@ public class StackController {
     @PostMapping
     public ResponseEntity<StackDTO> saveStack(@RequestBody StackSaveDTO newStackSaveDTO)
             throws RecordNotFoundException {
-        return new ResponseEntity<>(stackService.saveStackData(newStackSaveDTO), HttpStatus.OK);
+        return new ResponseEntity<>(stackService.saveStackData(newStackSaveDTO), HttpStatus.CREATED);
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<StackDTO> updateStack(@PathVariable Long id, @RequestBody StackSaveDTO newStackSaveDTO)
             throws RecordNotFoundException {
-        return new ResponseEntity<>(stackService.updateStackData(id, newStackSaveDTO), HttpStatus.OK);
+        return new ResponseEntity<>(stackService.updateStackData(id, newStackSaveDTO), HttpStatus.ACCEPTED);
     }
 
 }

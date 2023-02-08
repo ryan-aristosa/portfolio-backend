@@ -27,7 +27,7 @@ public class AboutController {
     @PatchMapping("/{id}")
     public ResponseEntity<AboutUpdateDTO> updateAbout
             (@PathVariable Long id, @RequestBody AboutUpdateDTO newAboutUpdateDTO) throws RecordNotFoundException {
-        return new ResponseEntity<>(aboutService.updateAboutData(id, newAboutUpdateDTO), HttpStatus.OK);
+        return new ResponseEntity<>(aboutService.updateAboutData(id, newAboutUpdateDTO), HttpStatus.ACCEPTED);
     }
 
 }
