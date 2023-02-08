@@ -18,7 +18,7 @@ public class FooterController {
 
 
     @GetMapping
-    public ResponseEntity<FooterDTO> getFooterData() {
+    public ResponseEntity<FooterDTO> getFooter() {
         FooterDTO footerDTO = footerService.getFooterData();
         return new ResponseEntity<>(footerDTO, HttpStatus.OK);
     }
