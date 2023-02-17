@@ -19,7 +19,7 @@ services:
             - pgadmin:/root/.pgadmin
 
         ports:
-            - '8082:80'
+            - '8080:8080'
 
     postgres:
         container_name: p-postgres
@@ -33,6 +33,6 @@ services:
             - postgres:/data/postgres
 
         ports:
-            - '5433:5432'
+            - '5432:5432'
 
         restart: unless-stopped
